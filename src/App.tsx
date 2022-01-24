@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// Main navigation containing the LoggedIn and LoggedOut navigation
+import Navigation from "./Navigation";
+// Redux
+import { store } from './store';
+import { Provider } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// React Query
+import { QueryClientProvider } from 'react-query';
+import {QueryClient} from 'react-query';
+
+export default function App() {
+
+    const client = new QueryClient();
+
+    const isLoggedIn : boolean = false
+
+
+
+    
+    
+    return (
+      <Provider store={store}>
+        <QueryClientProvider client={client}>
+          <Navigation />
+        </QueryClientProvider>
+      </Provider>
+    );
 }
-
-export default App;
