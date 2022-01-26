@@ -31,9 +31,9 @@ export default function Button({ label, isValid, ...props }: Props) {
         paddingRight: 32,
         paddingLeft: 32,
         margin: 16,
-        cursor: "pointer",
-        position: 'absolute',
-        bottom: 0
+        // cursor: "pointer",
+        // position: 'absolute',
+        // bottom: 0
       }}
       {...props}
     >
