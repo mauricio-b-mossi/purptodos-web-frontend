@@ -3,14 +3,15 @@ import { textInputBackground, textInputText } from '../constants';
 
 interface Props {
   label: string;
-  type: string;
+  cols?: number;
+  rows: number;
   placeholder?: string;
   value: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement> ) => void;
+  onChange?: (e: ChangeEvent<HTMLTextAreaElement> ) => void;
 }
 
 
-export default function Input({ label, type, ...props }: Props) {
+export default function TextArea({ label, ...props }: Props) {
   return (
     <div
       style={{
@@ -27,14 +28,15 @@ export default function Input({ label, type, ...props }: Props) {
     >
       <label style={{ color: textInputText, marginBottom: 4 }}>{label}</label>
       <div>
-        <input
+        <textarea
           style={{
+            width: "100%",
             fontSize: 12,
             outline: "none",
             backgroundColor: textInputBackground,
           }}
-          type={type}
           {...props}
+          
           
         />
       </div>

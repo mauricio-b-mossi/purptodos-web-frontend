@@ -4,6 +4,7 @@ import Input from "../../components/Input";
 import Link from "../../components/Link";
 import Title from "../../components/Title";
 import { mailFormat } from "../../constants";
+import "../../styles/index.css";
 
 // To validate the email remember to first turn everything to lower-case
 
@@ -18,16 +19,6 @@ export default function SignUp() {
   return (
     <div
       className="_container"
-      style={{
-        height: "100vh",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 40,
-        backgroundColor: "#F2F2F2",
-      }}
     >
           <Title label="Sign Up" />
           

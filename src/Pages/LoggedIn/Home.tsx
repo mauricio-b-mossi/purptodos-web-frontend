@@ -1,49 +1,52 @@
-import Title from '../../components/Title'
-import {useState} from 'react'
+import Title from "../../components/Title";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectUsername } from "../../slices/userSlice";
+import TodoCard from "../../components/TodoCard";
+import { primaryColor } from "../../constants";
+import PlusButton from "../../components/PlusButton";
+import { useNavigate } from "react-router-dom";
+import "../../styles/index.css";
+import { ReturnTodoInterface } from "../../dto/loggedIn.dto";
+import axios from "axios";
+import { url_web } from "../../url";
+import { useQuery } from "react-query";
 
 const Home = () => {
+  const username = useSelector(selectUsername);
+  const navigator = useNavigate();
 
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const query = () => {
+    return axios(url_web + "todo");
+  };
 
-  
-  // make inipial check to see whether use is logged in
-  
+  const { data, status } = useQuery("todos", query);
+
+  // console.log(data?.data[0]);
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 40,
-        backgroundColor: "#F2F2F2",
-      }}
-    >
-      <Title label="To-do's" />
-
-      {/* <Input
-        label="Usename"
-        type='text'
-        placeholder="John Doe"
-        value={username}
-        onChange={(e)=> setUsername(e.target.value)}
-
+    <div className="_container">
+      <Title
+        purple={`${username}'s`}
+        label={`Todos`}
+        style={{ paddingBottom: 20 }}
       />
 
+      {status === "loading" && <div>Loading...</div>}
 
+      {status === "error" && <div>Error...</div>}
 
-      <Input label="Password" type='password' placeholder="*******" value={password} onChange={(e) => setPassword(e.target.value)} />
+      {status === "idle" && <div>Idle...</div>}
 
-      <p className="text-red-600">{false && `Wrong Username Or Password`}</p>
+     
+        {status === "success" &&
+          data?.data.map(({ title, body, id }: ReturnTodoInterface) => (
+            <TodoCard label={title} description={body} id={id} key={id} />
+          ))}
 
-      <Button label="Login" />
-      <Link label="Sign Up" /> */}
+      <PlusButton onClick={() => navigator("/Create")} />
     </div>
   );
-}
+};
 
-export default Home
+export default Home;

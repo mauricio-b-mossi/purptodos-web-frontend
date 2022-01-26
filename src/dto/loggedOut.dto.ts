@@ -1,6 +1,6 @@
 import { useMutation } from "react-query";
 import axios from "axios";
-import url from "../url";
+import { url } from "../url";
 import { useDispatch } from "react-redux";
 import { setLoggedIn } from "../slices/loginSlice";
 
@@ -19,6 +19,8 @@ export interface ReturnUserInterface{
     username: string;
     id: string;
 }
+
+
 
 
 const dispatch = useDispatch()

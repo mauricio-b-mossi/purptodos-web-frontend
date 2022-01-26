@@ -6,15 +6,16 @@ import Title from "../../components/Title";
 import { useState, useEffect } from "react";
 import { LoginUserInterface } from "../../dto/loggedOut.dto";
 import axios from "axios";
-import url_web from "../../url";
+import {url_web} from "../../url";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setLoggedIn } from "../../slices/loginSlice";
 import { setUser } from "../../slices/userSlice";
+import '../../styles/index.css'
 
 
 
-function Login() {
+export default function Login() {
 
   // Need to set up the redux store to use the dispatch function
 
@@ -36,14 +37,14 @@ function Login() {
     try {
       const storedUser = await JSON.stringify(returnedUser);
       await localStorage.setItem("@user", storedUser);
-      //  FIXME: What does this mean?
-       await dispatch(setUser({}));
+      //  FIXME: What does this mean? Set user to null for what?
+      //  await dispatch(setUser({}));
     } catch (error) {
       throw error;
     }
   };
 
-
+// This navigates to the LoggedIn stack
    const onSuccess = async (): Promise<void> => {
      await dispatch(setLoggedIn(true));
   };
@@ -52,16 +53,7 @@ function Login() {
 
   return (
     <div
-      style={{
-        height: "100vh",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 40,
-        backgroundColor: "#F2F2F2",
-      }}
+      className="_container"
     >
       <Title label="Login" />
 
@@ -89,4 +81,3 @@ function Login() {
   );
 }
 
-export default Login;
