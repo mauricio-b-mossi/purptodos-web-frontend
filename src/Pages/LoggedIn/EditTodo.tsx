@@ -38,7 +38,7 @@ export default function EditTodo() {
 
   
 
-  const validate: boolean = todoTitle.length > 2 && todoBody.length > 4;
+  const validate: boolean = todoTitle.length > 2;
 
   const query = (todo: EditTodoInterface) => {
     return axios.put(url_web + "todo/" + id, todo);

@@ -15,7 +15,7 @@ export default function CreateTodo() {
 
   const navigator = useNavigate();
 
-  const validate: boolean = todoTitle.length > 2 && todoBody.length > 4;
+  const validate: boolean = todoTitle.length > 2;
 
   const query = (todo: CreateTodoInterface) => {
     return axios.post(url_web + "todo", todo);

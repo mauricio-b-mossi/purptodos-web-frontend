@@ -75,7 +75,7 @@ export default function TodoCard({
       {/* I want a overlay */}
       <motion.div
         animate={shrink}
-        className="z-10 m-2 flex relative rounded-lg shadow-sm ease-in-out duration-200  hover:shadow-lg  px-8 py-3 overflow-hidden cursor-pointer"
+        className="z-10 m-2 flex relative rounded-lg shadow-sm ease-in-out duration-200  hover:shadow-lg  px-8 py-3 overflow-hidden cursor-pointer flex-shrink-0"
         style={{ maxWidth: 350, width: "100%", ...style }}
         {...props}
       >

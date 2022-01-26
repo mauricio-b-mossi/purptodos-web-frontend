@@ -22,7 +22,6 @@ const Home = () => {
 
   const { data, status } = useQuery("todos", query);
 
-  // console.log(data?.data[0]);
 
   return (
     <div className="_container">
@@ -38,11 +37,12 @@ const Home = () => {
 
       {status === "idle" && <div>Idle...</div>}
 
-     
+      <div className="scroll" style={{overflowY: 'scroll', minWidth : '100%', maxHeight: 500, display : 'flex', flexDirection : 'column', justifyContent : 'start', alignItems : 'center'}}>
         {status === "success" &&
           data?.data.map(({ title, body, id }: ReturnTodoInterface) => (
             <TodoCard label={title} description={body} id={id} key={id} />
           ))}
+      </div>
 
       <PlusButton onClick={() => navigator("/Create")} />
     </div>
