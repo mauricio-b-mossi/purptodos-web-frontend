@@ -41,7 +41,7 @@ export default function CreateTodo() {
       <TextArea
         label="Body"
         placeholder="Clean the dishes"
-        rows={20}
+        rows={5}
         value={todoBody}
         onChange={(e) => setTodoBody(e.target.value)}
       />
