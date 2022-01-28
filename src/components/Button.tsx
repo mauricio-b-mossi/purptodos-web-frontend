@@ -19,19 +19,21 @@ const button = {
   alignItems: "center",
 };
 
+const container = {
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  paddingRight: 32,
+  paddingLeft: 32,
+  margin: 16,
+  cursor: "pointer",
+};
+
 export default function Button({ label, isValid, ...props }: Props) {
   return (
     <div
-      style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        paddingRight: 32,
-        paddingLeft: 32,
-        margin: 16,
-        cursor: 'pointer'
-      }}
+      style={ isValid ? container : {...container, pointerEvents: 'none'} }
       {...props}
     >
       <div
