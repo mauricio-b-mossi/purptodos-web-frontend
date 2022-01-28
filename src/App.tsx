@@ -12,12 +12,6 @@ export default function App() {
 
     const client = new QueryClient();
 
-    const isLoggedIn : boolean = false
-
-
-
-    
-    
     return (
       <Provider store={store}>
         <QueryClientProvider client={client}>

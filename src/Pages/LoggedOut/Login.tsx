@@ -1,4 +1,4 @@
-import { isError, useMutation } from "react-query";
+import { useMutation } from "react-query";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Link from "../../components/Link";
@@ -7,9 +7,7 @@ import { useState} from "react";
 import { LoginUserInterface } from "../../dto/loggedOut.dto";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { setLoggedIn } from "../../slices/loginSlice";
-import { setUser } from "../../slices/userSlice";
 import "../../styles/index.css";
 
 export default function Login() {

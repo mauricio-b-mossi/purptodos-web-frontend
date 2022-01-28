@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { isError, useMutation } from "react-query";
+import { useState } from "react";
+import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import Input from "../../components/Input";

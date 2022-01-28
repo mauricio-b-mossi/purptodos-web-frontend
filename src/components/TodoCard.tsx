@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { textInputText } from "../constants";
 import { motion, useAnimation, useMotionValue, useTransform } from "framer-motion";
-import { useMutation, useQueryClient } from "react-query";
+import { useQueryClient } from "react-query";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import LoggedOutNavigation from "./Navigation/LoggedOut.navigation";
 import LoggedInNavigation from "./Navigation/LoggedIn.navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoggedIn, setLoggedIn } from "./slices/loginSlice";
 import { setUser } from "./slices/userSlice";
-import { primaryColor } from "./constants";
 
 export default function Navigation() {
   // Use react-readux to set state

@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import CreateTodo from '../Pages/LoggedIn/CreateTodo';
 import EditTodo from '../Pages/LoggedIn/EditTodo';
 import Home from '../Pages/LoggedIn/Home';
-// import RedirectHome from '../Pages/LoggedIn/RedirectHome';
 import { selectToken, setUser } from '../slices/userSlice';
 
 export default function LoggedIn() {

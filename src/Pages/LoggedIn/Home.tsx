@@ -8,7 +8,6 @@ import "../../styles/index.css";
 import { ReturnTodoInterface } from "../../dto/loggedIn.dto";
 import axios from "axios";
 import { useQuery } from "react-query";
-// import spinner from './spinner.png'
 
 const Home = () => {
 
