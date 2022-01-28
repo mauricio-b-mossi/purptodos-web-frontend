@@ -54,7 +54,7 @@ export default function TodoCard({
           )
           .then(() =>
             axios
-              .delete(process.env.REACT_APP_URL + "todo/" + id)
+              .delete(`${process.env.REACT_APP_URL}todo/${id}`)
               .then((res) => console.log(res))
               .then(() => queryClient.invalidateQueries("todos"))
               .catch((err) => console.log(err))
