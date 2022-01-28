@@ -67,6 +67,10 @@ export default function TodoCard({
     }
   }
 
+  const descriptionMeasure: boolean = description.length < 1
+  
+  const containerStyle = { maxWidth: 350, width: "100%", ...style };
+
   
 
   return (
@@ -75,7 +79,7 @@ export default function TodoCard({
       <motion.div
         animate={shrink}
         className="z-10 m-2 flex relative rounded-lg shadow-sm ease-in-out duration-200  hover:shadow-lg  px-8 py-3 overflow-hidden cursor-pointer flex-shrink-0"
-        style={{ maxWidth: 350, width: "100%", ...style }}
+        style={descriptionMeasure ? {...containerStyle, paddingTop : 21, paddingBottom : 21}: containerStyle}
         {...props}
       >
         <motion.div
