@@ -1,10 +1,7 @@
-import React from 'react';
 import { primaryColor } from '../constants';
-import { UrlObject } from 'url';
 import {Link as LinkR} from 'react-router-dom'
 
 
-type Url = string | UrlObject
 interface Props {
     label: string,
     href: string;

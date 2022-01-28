@@ -1,7 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from '../Pages/LoggedOut/Login';
-import RedirectLogin from '../Pages/LoggedOut/RedirectLogin';
 import SignUp from '../Pages/LoggedOut/SignUp';
 
 export default function LoggedOut() {
@@ -10,7 +9,7 @@ export default function LoggedOut() {
         <Routes>
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
-          <Route path="*" element={<RedirectLogin />} />
+          <Route path="*" element={<Navigate replace to='/Login' />} />
         </Routes>
       </Router>
     );

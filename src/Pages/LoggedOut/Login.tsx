@@ -3,36 +3,31 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Link from "../../components/Link";
 import Title from "../../components/Title";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { LoginUserInterface } from "../../dto/loggedOut.dto";
 import axios from "axios";
-import {url_web} from "../../url";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setLoggedIn } from "../../slices/loginSlice";
 import { setUser } from "../../slices/userSlice";
-import '../../styles/index.css'
-
-
+import "../../styles/index.css";
 
 export default function Login() {
-
   // Need to set up the redux store to use the dispatch function
 
   const dispatch = useDispatch();
-  // const navigator = useNavigate();
 
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  
-
-  
 
   const verify: boolean = username.length > 4 && password.length > 4;
 
   // This is passed to the mutation function
   const loginFunction = async (user: LoginUserInterface): Promise<void> => {
-    const { data: returnedUser } = await axios.post(url_web + "auth/login", user);
+    const { data: returnedUser } = await axios.post(
+      process.env.REACT_APP_URL + "auth/login",
+      user
+    );
 
     try {
       const storedUser = await JSON.stringify(returnedUser);
@@ -44,17 +39,16 @@ export default function Login() {
     }
   };
 
-// This navigates to the LoggedIn stack
-   const onSuccess = async (): Promise<void> => {
-     await dispatch(setLoggedIn(true));
+  // This navigates to the LoggedIn stack
+  const onSuccess = async (): Promise<void> => {
+    await dispatch(setLoggedIn(true));
   };
 
-   const { isError, mutate } = useMutation(loginFunction, { onSuccess });
+  const { isError, mutate } = useMutation(loginFunction, { onSuccess });
+
 
   return (
-    <div
-      className="_container"
-    >
+    <div className="_container">
       <Title label="Login" />
 
       <Input
@@ -73,11 +67,16 @@ export default function Login() {
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <p className="text-red-600">{isError && `Wrong Username Or Password`}</p>
+      <p className="text-red-600">
+        {isError && "Incorrect Credentials"}
+      </p>
 
-      <Button label="Login" isValid={verify} onClick={()=> mutate({username, password})}/>
+      <Button
+        label="Login"
+        isValid={verify}
+        onClick={() => mutate({ username, password })}
+      />
       <Link label="Sign Up" href="/SignUp" />
     </div>
   );
 }
-

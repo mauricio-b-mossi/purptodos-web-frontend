@@ -4,9 +4,8 @@ import TextArea from "../../components/TextArea";
 import Title from "../../components/Title";
 import Button from "../../components/Button";
 import axios from "axios";
-import { url_web } from "../../url";
 import { useMutation } from "react-query";
-import { CreateTodoInterface, EditTodoInterface } from "../../dto/loggedIn.dto";
+import {EditTodoInterface } from "../../dto/loggedIn.dto";
 import { Location, useLocation, useNavigate } from "react-router-dom";
 
 export default function EditTodo() {
@@ -41,7 +40,7 @@ export default function EditTodo() {
   const validate: boolean = todoTitle.length > 2;
 
   const query = (todo: EditTodoInterface) => {
-    return axios.put(url_web + "todo/" + id, todo);
+    return axios.put(process.env.REACT_APP_URL + "todo/" + id, todo);
   };
 
   const onSuccess = () => {
@@ -54,7 +53,7 @@ export default function EditTodo() {
 
   return (
     <div className="_container">
-      <Title purple="Create" label="Todo" />
+      <Title purple="Edit" label="Todo" />
       <Input
         label="Title"
         placeholder="Todo"

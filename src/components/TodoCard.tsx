@@ -3,7 +3,6 @@ import { textInputText } from "../constants";
 import { motion, useAnimation, useMotionValue, useTransform } from "framer-motion";
 import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
-import { url_web } from "../url";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
@@ -50,12 +49,12 @@ export default function TodoCard({
             shrink.start({
               height: 0,
               opacity: 0,
-              transition: { duration: 0.5, ease : 'easeInOut'},
+              transition: { duration: 0.5, ease: "easeInOut" },
             })
           )
           .then(() =>
             axios
-              .delete(url_web + "todo/" + id)
+              .delete(process.env.REACT_APP_URL + "todo/" + id)
               .then((res) => console.log(res))
               .then(() => queryClient.invalidateQueries("todos"))
               .catch((err) => console.log(err))
@@ -107,7 +106,7 @@ export default function TodoCard({
             <p
               style={{ fontSize: 12, fontWeight: "400", color: textInputText }}
             >
-              {description.substring(0, 40)}...
+              {description.substring(0, 40)}
             </p>
           </div>
         </div>

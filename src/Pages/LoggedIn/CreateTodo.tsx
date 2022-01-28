@@ -4,7 +4,6 @@ import TextArea from "../../components/TextArea";
 import Title from "../../components/Title";
 import Button from "../../components/Button";
 import axios from "axios";
-import { url_web } from "../../url";
 import { useMutation } from "react-query";
 import { CreateTodoInterface } from "../../dto/loggedIn.dto";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +17,7 @@ export default function CreateTodo() {
   const validate: boolean = todoTitle.length > 2;
 
   const query = (todo: CreateTodoInterface) => {
-    return axios.post(url_web + "todo", todo);
+    return axios.post(process.env.REACT_APP_URL + "todo", todo);
   };
 
   const onSuccess = () => {

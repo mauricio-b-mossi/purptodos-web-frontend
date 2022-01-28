@@ -1,11 +1,11 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import CreateTodo from '../Pages/LoggedIn/CreateTodo';
 import EditTodo from '../Pages/LoggedIn/EditTodo';
 import Home from '../Pages/LoggedIn/Home';
-import RedirectHome from '../Pages/LoggedIn/RedirectHome';
+// import RedirectHome from '../Pages/LoggedIn/RedirectHome';
 import { selectToken, setUser } from '../slices/userSlice';
 
 export default function LoggedIn() {
@@ -39,7 +39,7 @@ export default function LoggedIn() {
           <Route path="/" element={<Home />} />
           <Route path='/Create' element={<CreateTodo/>}/>
           <Route path='/Edit' element={<EditTodo/>}/>
-          <Route path='*' element={ <RedirectHome/> }/>
+          <Route path='*' element={ <Navigate replace to='/'/> }/>
         </Routes>
       </Router>
     );

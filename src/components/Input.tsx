@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, SetStateAction } from "react";
+import React, { ChangeEvent} from "react";
 import { textInputBackground, textInputText } from '../constants';
 
 interface Props {
