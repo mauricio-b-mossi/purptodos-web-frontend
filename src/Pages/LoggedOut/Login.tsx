@@ -23,7 +23,7 @@ export default function Login() {
   // This is passed to the mutation function
   const loginFunction = async (user: LoginUserInterface): Promise<void> => {
     const { data: returnedUser } = await axios.post(
-      `https://purptodos.herokuapp.com/auth/login`,
+      `${process.env.REACT_APP_URL}auth/login`,
       user
     );
 
