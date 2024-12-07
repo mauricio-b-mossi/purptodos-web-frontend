@@ -40,7 +40,7 @@ export default function EditTodo() {
   const validate: boolean = todoTitle.length > 2;
 
   const query = (todo: EditTodoInterface) => {
-    return axios.put(`${process.env.REACT_APP_URL}todo/${id}`, todo);
+    return axios.put(`${process.env.BACKEND_URL}todo/${id}`, todo);
   };
 
   const onSuccess = () => {
