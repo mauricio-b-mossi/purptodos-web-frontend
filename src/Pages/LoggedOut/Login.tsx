@@ -22,9 +22,8 @@ export default function Login() {
 
   // This is passed to the mutation function
   const loginFunction = async (user: LoginUserInterface): Promise<void> => {
-    console.log(process.env.BACKEND_URL, process.env.REACT_APP_URL)
     const { data: returnedUser } = await axios.post(
-      `${process.env.BACKEND_URL}auth/login`,
+      `${process.env.REACT_APP_URL}auth/login`,
       user
     );
 

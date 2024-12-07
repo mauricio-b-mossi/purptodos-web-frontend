@@ -17,7 +17,7 @@ export default function CreateTodo() {
   const validate: boolean = todoTitle.length > 2;
 
   const query = (todo: CreateTodoInterface) => {
-    return axios.post( `${process.env.BACKEND_URL}todo`, todo);
+    return axios.post( `${process.env.REACT_APP_URL}todo`, todo);
   };
 
   const onSuccess = () => {

@@ -18,7 +18,7 @@ export default function SignUp() {
   
   const signUpFunction = (user : CreateUserInterface) => {
     // return axios.post(url_web + 'auth/signup', user)
-    return axios.post( `${process.env.BACKEND_URL}auth/signup`, user);
+    return axios.post( `${process.env.REACT_APP_URL}auth/signup`, user);
   }
 
   const [username, setUsername] = useState<string>("");

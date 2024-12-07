@@ -15,7 +15,7 @@ const Home = () => {
   const navigator = useNavigate();
 
   const query = () => {
-    return axios(`${process.env.BACKEND_URL}todo`);
+    return axios(`${process.env.REACT_APP_URL}todo`);
   };
 
   const { data, status } = useQuery("todos", query);
